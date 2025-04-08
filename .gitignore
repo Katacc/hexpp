@@ -1,0 +1,9 @@
+build/
+.vscode/
+.vscode/.ropeproject/
+.vscode/ipch/
+compile_commands.json
+*.obj
+*.exe
+*.ilk
+*.pdb

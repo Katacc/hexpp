@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "default",
+      "inherits": "vcpkg",
+      "environment": {
+        "VCPKG_ROOT": "$env{HOME}/vcpkg",
+        "CC": "gcc",
+        "CXX": "g++"
+      }
+    },
+    {
+      "name": "clang",
+      "inherits": "vcpkg",
+      "environment": {
+        "VCPKG_ROOT": "$env{HOME}/vcpkg",
+        "CC": "clang",
+        "CXX": "clang++"
+      }
+    }
+  ]
+}
