@@ -74,8 +74,8 @@ vcpkg is a C/C++ package manager made by Microsoft: [https://vcpkg.io](https://v
 
 1. Clone the repository:
    ```sh
-   git clone <repository_url>
-   cd <repository_folder>
+   git clone https://gitlab.com/Katacc/hexpp
+   cd hexpp
    ```
 
 2. Use CMake to build the project (gcc):
