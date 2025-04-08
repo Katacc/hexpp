@@ -235,7 +235,7 @@ CMake is configured to find all .cpp files and automatically added to the projec
 include header files in your source files normally. Use absolute paths from src
 ```cpp
 // In main.cpp
-#include <commands/headers/test.h>
+#include "commands/headers/test.h"
 ```
 
 #### Modules
