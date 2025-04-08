@@ -315,8 +315,8 @@ project.cfg syntax is strict, since many things read from it, make sure the that
 
 ```
 [project]
-name = yoru
-version = 0.5.0
+name = hx++
+version = 1.0.0
 
 [CMake]
 CXX_version = 23
