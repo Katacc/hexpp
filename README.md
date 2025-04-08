@@ -257,7 +257,6 @@ name = project_name
 version = 1.0
 ```
 
-
 ---
 
 ### Encountering Errors
