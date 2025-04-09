@@ -5,9 +5,10 @@
     Made to easen your C++ project management with a bit of hex magix ~
 
 </div>
-https://gitlab.com/Katacc/hexpp
 
 https://github.com/Katacc/hexpp
+
+https://gitlab.com/Katacc/hexpp
 
 ---
 
@@ -79,7 +80,7 @@ vcpkg is a C/C++ package manager made by Microsoft: [https://vcpkg.io](https://v
 
 1. Clone the repository:
    ```sh
-   git clone https://gitlab.com/Katacc/hexpp
+   git clone https://github.com/Katacc/hexpp.git
    cd hexpp
    ```
 
