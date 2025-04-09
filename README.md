@@ -5,7 +5,8 @@
     Made to easen your C++ project management with a bit of hex magix ~
 
 </div>
-https://gitlab.com/Katacc/hexpp \
+https://gitlab.com/Katacc/hexpp
+
 https://github.com/Katacc/hexpp
 
 ---
