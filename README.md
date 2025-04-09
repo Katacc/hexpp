@@ -7,12 +7,14 @@
 </div>
 
 
-https://github.com/Katacc/hexpp (main)
-  https://gitlab.com/Katacc/hexpp
 
 ---
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y51D6K2E)
+
+
+https://github.com/Katacc/hexpp (main)  \
+https://gitlab.com/Katacc/hexpp
 
 ## Release and plans
 
