@@ -6,7 +6,7 @@
 
 </div>
 
-https://github.com/Katacc/hexpp
+https://github.com/Katacc/hexpp (main)
 
 https://gitlab.com/Katacc/hexpp
 
@@ -298,6 +298,8 @@ version = 1.0
 
 #### Reporting Issues:
 If you encounter unexpected errors, please submit an issue describing the problem.
+
+Preferably use GitHub for any issues / pull requests https://github.com/Katacc/hexpp
 
 ---
 
