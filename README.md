@@ -2,7 +2,7 @@
     <h1>proj. Hex++</h1>
     C++ project manager. Wrapper to combine CMake, vcpkg, and project generation.
 
-    Made to easen your C++ project management with a bit of hex magix ~
+   > Made to ease your C++ project management with a bit of hex magix ~
 
 </div>
 
