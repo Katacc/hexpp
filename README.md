@@ -6,8 +6,7 @@
 
 </div>
 
-https://github.com/Katacc/hexpp (main)
-
+https://github.com/Katacc/hexpp (main) \\
 https://gitlab.com/Katacc/hexpp
 
 ---
