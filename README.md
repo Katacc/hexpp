@@ -108,6 +108,21 @@ vcpkg is a C/C++ package manager made by Microsoft: [https://vcpkg.io](https://v
    - **Windows Example**:
    Copy the `build/Release/hx++.exe` to a folder (e.g., `bin`) and add that folder to your PATH.
 
+
+#### Find writing hx++ annoying?
+
+After cloning hexpp repository, go into `project.cfg`, and change the project name to hxpp, this makes the executable into hxpp(.exe)
+```
+[project]
+name = hxpp
+version = 1.0.0
+
+[CMake]
+CXX_version = 23
+```
+
+if you have built the project allready with the original name, don't worry, just delete `/build` folder and build again after changing the value in project.cfg
+
 ---
 
 ### Using Hex++
