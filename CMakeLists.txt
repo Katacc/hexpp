@@ -36,6 +36,8 @@ set(CMAKE_CXX_STANDARD ${cxx_version})
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_COLOR_DIAGNOSTICS ON)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Determine the executable extension based on the operating system
 if(WIN32)
     set(EXECUTABLE_EXTENSION ".exe")
