@@ -4,6 +4,9 @@
 
    > Made to ease your C++ project management with a bit of hex magix ~
 
+![clangd build](https://github.com/Katacc/hexpp/actions/workflows/cmake-multi-platform.yml/badge.svg)
+
+
 </div>
 
 
