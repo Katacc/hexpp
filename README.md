@@ -260,7 +260,41 @@ include header files in your source files normally. Use absolute paths from src
 
 #### Modules
 
-Adding modules is simple, CMake automatically grabs all module files (.ixx) and includes them for you, you only need to do the standard C++23 module exports and imports in your program.
+Adding modules is simple, CMake automatically grabs all module files (.cppm and .ixx) ((.cppm is advised, not all editors recognize .ixx)) and includes them for you, you only need to do the standard C++23 module exports and imports in your program.
+
+##### Quick example of modules in C++23
+
+```cpp
+// testmod.cppm
+
+module;
+#include <iostream>     // Old header includes are to be done 
+                        // inside of the module declaration zone.
+
+export module testmod;  // Start of the module
+
+
+// export keyword to make the function accessible outside.
+export void print() {
+    std::cout << "Print!" << std::endl;
+}
+```
+
+```cpp
+// main.cpp
+#include <iostream>
+import testmod;
+
+int main() {
+    using namespace std;
+
+    cout << "Test" << endl;
+
+    print();    // The testmod print function.
+
+    return 0;
+}
+```
 
 ---
 

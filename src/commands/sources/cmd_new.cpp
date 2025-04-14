@@ -449,7 +449,9 @@ Error_code cmd_new::write_CMakeLists() {
         cmake_file << "" << endl;
         cmake_file << "# (EXAMPLE)Find all .cpp files in src/libraries " << endl;
         cmake_file << "file(GLOB_RECURSE cpp_sources CONFIGURE_DEPENDS \"${PROJECT_SOURCE_DIR}/src/*.cpp\")" << endl;
-        cmake_file << "file(GLOB_RECURSE module_files CONFIGURE_DEPENDS \"${PROJECT_SOURCE_DIR}/src/*.ixx\")" << endl;
+        cmake_file << "file(GLOB_RECURSE module_files_ixx CONFIGURE_DEPENDS \"${PROJECT_SOURCE_DIR}/src/*.ixx\")" << endl;
+        cmake_file << "file(GLOB_RECURSE module_files_cppm CONFIGURE_DEPENDS \"${PROJECT_SOURCE_DIR}/src/*.cppm\")" << endl;
+        cmake_file << "# .ixx for microsoft standard and .cppm for neovim support without anything special" << endl;
         cmake_file << endl;
         cmake_file << endl;
         cmake_file << endl;
@@ -463,7 +465,8 @@ Error_code cmd_new::write_CMakeLists() {
         cmake_file << "target_sources(${PROJECT_NAME}" << endl;
         cmake_file << "    PRIVATE" << endl;
         cmake_file << "        FILE_SET cxx_modules TYPE CXX_MODULES FILES" << endl;
-        cmake_file << "            ${module_files}" << endl;
+        cmake_file << "            ${module_files_ixx}" << endl;
+        cmake_file << "            ${module_files_cppm}" << endl;
         cmake_file << ")" << endl;
         cmake_file << "" << endl;
         cmake_file << endl;
