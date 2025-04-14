@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.31)
 
 configure_file(${CMAKE_SOURCE_DIR}/project.cfg ${CMAKE_BINARY_DIR}/project.cfg COPYONLY)
 file(STRINGS ${CMAKE_SOURCE_DIR}/project.cfg config_lines)
