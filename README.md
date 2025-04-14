@@ -40,7 +40,7 @@ This project uses CMake, GCC, and G++ compilers, which can be installed natively
 - `g++` or `clang` (c++23 support)
 - `gcc` or `clang`
 - `gdb`
-- `CMake` (4.0 or later recommended)
+- `CMake` (4.0 or later recommended, building hex++ requires 3.31)
 - `Make`
 - `vcpkg` (installation guide below)
 - `ninja`
