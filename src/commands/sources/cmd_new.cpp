@@ -432,6 +432,10 @@ Error_code cmd_new::write_CMakeLists() {
         cmake_file << "set(CMAKE_CXX_STANDARD_REQUIRED True)" << endl;
         cmake_file << "set(CMAKE_COLOR_DIAGNOSTICS ON)" << endl;
         cmake_file << "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)" << endl;
+        cmake_file << "set(CMAKE_COLOR_MAKEFILE ON)" << endl;
+        cmake_file << "add_compile_options(-fansi-escape-codes)" << endl;
+        cmake_file << "add_compile_options(-fcolor-diagnostics)" << endl;
+        cmake_file << "" << endl;
         cmake_file << "" << endl;
         cmake_file << "# Debug options" << endl;
         cmake_file << "# Uncomment to enable address sanitizing (DOESNT WORK ON WINDOWS)" << endl;
