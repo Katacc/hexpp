@@ -200,10 +200,23 @@ project
    hx++ install
    ```
 
-   After adding a package, you need to include it in your [`CMakeLists.txt`](CMakeLists.txt ) file. For example:
+   After adding a package, vcpkg will show you what to add to your `CMakeLists.txt`. You need to manually include it in. For example:
+
+    -- From shell after running `hx++ add sdl3`
+   ```sh
+   sdl3 provides CMake targets:
+
+   find_package(SDL3 CONFIG REQUIRED)
+   target_link_libraries(main PRIVATE SDL3::SDL3)
+   ```
+
+    -- Add to your CMakeLists.txt
    ```cmake
    find_package(SDL3 CONFIG REQUIRED)
-   target_link_libraries([PROGRAM_NAME] PRIVATE SDL3::SDL3)
+   target_link_libraries([PROGRAM_NAME] PRIVATE
+                            # Installed libraries here
+                            SDL3::SDL3
+                        )
    ```
 
 ---
