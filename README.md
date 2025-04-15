@@ -278,6 +278,8 @@ include header files in your source files normally. Use absolute paths from src
 
 Adding modules is simple, CMake automatically grabs all module files (.cppm and .ixx) ((.cppm is advised, not all editors recognize .ixx)) and includes them for you, you only need to do the standard C++23 module exports and imports in your program.
 
+If you use modules, I suggest using Clang, GCC has some problems with modules still.
+
 ##### Quick example of modules in C++23
 
 ```cpp
