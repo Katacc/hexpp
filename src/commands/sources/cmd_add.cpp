@@ -23,10 +23,10 @@ Error_code cmd_add::add_package(const string package_name) {
     // Install package
     try {
         string install_string = "vcpkg add port " + package;
-        string install = "vcpkg install";
+        // string install = "vcpkg install";
         system(install_string.c_str());
-        system(install.c_str());
-        cout << "Package: " << package << " succesfully installed!" << endl;
+        // system(install.c_str());
+        cout << "Package: " << package << " succesfully added" << endl;
         return success;
     } catch (exception &e) {
         cerr << "Error adding package: " << e.what() << endl;
