@@ -195,7 +195,9 @@ project
    hx++ add sdl3
    ```
 
-   **Install packages when you have not added them**:
+   **Install packages** :
+   (Not necessary, it installs them when running first build anyways)
+
    ```sh
    hx++ install
    ```
