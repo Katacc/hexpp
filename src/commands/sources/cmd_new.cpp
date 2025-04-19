@@ -433,8 +433,10 @@ Error_code cmd_new::write_CMakeLists() {
         cmake_file << "set(CMAKE_COLOR_DIAGNOSTICS ON)" << endl;
         cmake_file << "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)" << endl;
         cmake_file << "set(CMAKE_COLOR_MAKEFILE ON)" << endl;
-        cmake_file << "add_compile_options(-fansi-escape-codes)" << endl;
-        cmake_file << "add_compile_options(-fcolor-diagnostics)" << endl;
+        cmake_file << "if(CMAKE_CXX_COMPILER_ID MATCHES \"Clang\" OR CMAKE_C_COMPILER_ID MATCHES \"Clang\")" << endl;
+        cmake_file << "    add_compile_options(-fcolor-diagnostics -fansi-escape-codes)" << endl;
+        cmake_file << "endif()" << endl;
+        cmake_file << "" << endl;
         cmake_file << "" << endl;
         cmake_file << "" << endl;
         cmake_file << "# Debug options" << endl;
