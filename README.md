@@ -26,7 +26,7 @@ Hello! Im proud to release my take on C++ project management for the public!
 The project is in working state and has the core functionalities I wanted it to have. There shouldn't be any big changes that would break projects, but I can't say for sure yet. Ill let you know if any updates comes that might break functionality, and how to migrate
 
 TODO:
-   - [ ] Argument passing for the target runnable
+   - [x] Argument passing for the target runnable
    - [ ] "self-heal" command
    - [ ] Regex matching for configurations to everywhere, currently configs are strict on spacing
 
