@@ -13,6 +13,7 @@ void cmd_add::help() {
     cout << "Usage:     hx++ add <package name>\n" << endl;
     cout << "Options:" << endl;
     cout << "   <packages ..>" << endl;
+    
 
 }
 

@@ -20,7 +20,7 @@ void cmd_run::help() {
 
 }
 
-Error_code cmd_run::run(Context &build_config) {
+Error_code cmd_run::run(Context &build_config, string passthrough) {
 
 
     // Check if build directory exists
@@ -81,7 +81,7 @@ Error_code cmd_run::run(Context &build_config) {
             exe_found = true;
             cout << "Found executable: " << entry.path() << endl;
 
-            string exec_command = "\"" + fs::absolute(files).string() + "\"";
+            string exec_command = "\"" + fs::absolute(files).string() + "\" " + passthrough;
             replace(exec_command.begin(), exec_command.end(), '\\', '/');
             cout << "Running: " << project_name << endl;
             cout << "----------------------------------------------" << endl;

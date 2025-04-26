@@ -9,7 +9,7 @@
 namespace cmd_run {
 
     void help();
-    Error_code run(Context &build_config);
+    Error_code run(Context &build_config, std::string passthrough);
 }
 
 

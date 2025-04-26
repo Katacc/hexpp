@@ -21,6 +21,7 @@ void cmd_build::help() {
     cout << "       --default" << endl;
     cout << "       --custom" << endl;
     cout << "       --clang" << endl;
+    cout << "       --gcc" << endl;
     cout << "       --vcpkg" << endl;
 
 }

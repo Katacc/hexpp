@@ -271,6 +271,16 @@ Error_code cmd_new::write_CMakeUserPresets(Context &build_config) {
         user_presets_file << "      }" << endl;
         user_presets_file << "    }," << endl;
         user_presets_file << "    {" << endl;
+        user_presets_file << "      \"name\": \"gcc\"," << endl;
+        user_presets_file << "      \"inherits\": \"vcpkg\"," << endl;
+        user_presets_file << "      \"environment\": {" << endl;
+        user_presets_file << "          \"VCPKG_ROOT\": \"$env{HOME}/vcpkg\"," << endl;
+        user_presets_file << "          \"CC\": \"gcc\"," << endl;
+        user_presets_file << "          \"CXX\": \"g++\"" << endl;
+        user_presets_file << "" << endl;
+        user_presets_file << "      }" << endl;
+        user_presets_file << "    }," << endl;
+        user_presets_file << "    {" << endl;
         user_presets_file << "      \"name\": \"custom\"," << endl;
         user_presets_file << "      \"inherits\": \"vcpkg\"," << endl;
         user_presets_file << "      \"environment\": {" << endl;

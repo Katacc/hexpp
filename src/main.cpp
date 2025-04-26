@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <filesystem>
 #include <fstream>
+#include <string.h>
 
 #include "context.h"
 #include "commands/headers/cmd.h"
@@ -12,6 +13,7 @@
 #include "commands/headers/cmd_build.h"
 #include "commands/headers/cmd_run.h"
 #include "commands/headers/cmd_install.h"
+#include "commands/headers/cmd_search.h"
 
 
 Context build_config;
@@ -76,7 +78,7 @@ void get_default_configs() {
 int main(int argc, char *argv[]) {
     using namespace std;
 
-    cout << "proj. Hex++  version: 1.0.4" << endl;
+    cout << "proj. Hex++  version: 1.1.0" << endl;
     cout << "---------------------------\n" << endl;
 
     get_default_configs();
@@ -104,13 +106,6 @@ int parse_arguments(int &argc, char *argv[]) {
 
     int error_flag = 0;
 
-    std::set<string> accepted_commands = {"new", "add", "build", "run", "install", "--help", "--default", "--vcpkg", "--custom", "--clang", "--release", "--debug"};
-    for (const string &command : commands_set) {
-        if (!accepted_commands.contains(command)) {
-            error_flag = 1;
-            break;
-        }
-    }
 
 
     if (argc < 2) {
@@ -128,6 +123,7 @@ int parse_arguments(int &argc, char *argv[]) {
                 cmd_new::help();
                 return 0;
             } else {
+
 
                 if (argc == 3 && string(argv[2]) != "") {
 
@@ -147,6 +143,7 @@ int parse_arguments(int &argc, char *argv[]) {
                 return 0;
             } else {
 
+
                 if (argc >= 3 && string(argv[2]) != "") {
 
                     string package_name = "";
@@ -154,6 +151,7 @@ int parse_arguments(int &argc, char *argv[]) {
                         package_name.append(argv[i]);
                         package_name.append(" ");
                     }
+
                     cmd_add::add_package(package_name);
                 } else {
                     cmd_add::help();
@@ -161,12 +159,43 @@ int parse_arguments(int &argc, char *argv[]) {
                 return 0;
             }
 
+        // COMMND SEARCH
+        } else if (command == "search") {
+            if (help_switch) {
+                cmd_search::help();
+                return 0;
+            } else {
+
+                string package_name = "";
+
+                if (argc >= 2 && argc < 4) {
+                    if (argc == 3) {
+                        package_name = argv[2];
+                    }
+                    cmd_search::search_package(package_name);
+                } else {
+                    cout << "Error: Mismatch in arguments.. search takes in 0 - 1 arguments\n";
+                    return 1;
+                }
+                return 0;
+            }
+
+
         // COMMAND BUILD
         } else if (command == "build") {
             if (help_switch) {
                 cmd_build::help();
                 return 0;
             } else {
+
+                // Check for valid commands
+                std::set<string> accepted_commands = {"build", "--debug", "--release", "--default", "--vcpkg", "--custom", "--clang", "--gcc"};
+                for (const string &command : commands_set) {
+                    if (!accepted_commands.contains(command)) {
+                        error_flag = 1;
+                        break;
+                    }
+                }
 
                 if (error_flag == 1) {
                     cout << "ERROR: Unknown parameter(s) detected\n\n",
@@ -192,6 +221,9 @@ int parse_arguments(int &argc, char *argv[]) {
                 if (commands_set.contains("--clang")) {
                     build_config.preset = "clang";
                 }
+                if (commands_set.contains("--gcc")) {
+                    build_config.preset = "gcc";
+                }
 
                 cmd_build::build(build_config);
 
@@ -207,20 +239,32 @@ int parse_arguments(int &argc, char *argv[]) {
 
             } else {
 
-                if (error_flag == 1) {
-                    cout << "ERROR: Unknown parameter(s) detected\n\n",
-                    cmd_run::help();
-                    return 1;
+                string passthrough = "";
+
+                if (argc >= 3) {
+
+                    if (strcmp(argv[2], "--debug") == 0 || strcmp(argv[2], "--release") == 0) {
+                       
+                        if (strcmp(argv[2], "--debug") == 0) {
+                            build_config.config = "Debug";
+                        } else if (strcmp(argv[2], "--release") == 0) {
+                            build_config.config = "Release";
+                        }
+
+                        for (int i = 3; i < argc; i++) {
+                            passthrough.append(argv[i]);
+                            passthrough.append(" ");
+                        }
+                    } else {
+
+                        for (int i = 2; i < argc; i++) {
+                            passthrough.append(argv[i]);
+                            passthrough.append(" ");
+                        }
+                    }
                 }
 
-                if (commands_set.contains("--debug")) {
-                    build_config.config = "Debug";
-                }
-                if (commands_set.contains("--release")) {
-                    build_config.config = "Release";
-                }
-
-                cmd_run::run(build_config);
+                cmd_run::run(build_config, passthrough);
 
                 return 0;
             }
@@ -231,6 +275,15 @@ int parse_arguments(int &argc, char *argv[]) {
 
                 return 0;
             } else {
+
+
+                std::set<string> accepted_commands = {"install"};
+                for (const string &command : commands_set) {
+                    if (!accepted_commands.contains(command)) {
+                        error_flag = 1;
+                        break;
+                    }
+                }
 
                 if (argc > 2) {
                     cout << "ERROR: Unknow parameter(s) detected\n\n";
@@ -255,11 +308,12 @@ void help() {
 
     cout << "Usage:     hx++ <command> <argument> [options]\n" << endl;
     cout << "Commands:" << endl;
-    cout << "   new <project name>      -- Creates a new project" << endl;
-    cout << "   add <packages ..>       -- Adds packages using vcpkg" << endl;
-    cout << "   build [config] [preset] -- Builds project" << endl;
-    cout << "   run [config]            -- Runs the executable" << endl;
+    cout << "   new <project name>          -- Creates a new project" << endl;
+    cout << "   add <packages ..>           -- Adds packages using vcpkg" << endl;
+    cout << "   search <packge>             -- Search for packages from vcpkg" << endl;
+    cout << "   build [config] [preset]     -- Builds project" << endl;
+    cout << "   run [config]                -- Runs the executable" << endl;
     cout << "Options:" << endl;
-    cout << "   --help                  -- Shows the help of specific command" << endl;
+    cout << "   --help                      -- Shows the help of specific command" << endl;
 }
 

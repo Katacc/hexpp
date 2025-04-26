@@ -3,10 +3,9 @@
 
 #include "cmd.h"
 
-using namespace std;
-
-
 namespace cmd_add {
+
+    using std::string;
 
     void help();
     Error_code add_package(const string package_name);
