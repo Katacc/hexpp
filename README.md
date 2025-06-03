@@ -195,6 +195,11 @@ project
    hx++ add sdl3
    ```
 
+   5. **Search for package through vcpkg**:
+   ```sh
+   hx++ search <package>
+   ```
+
    **Install packages** :
    (Not necessary, it installs them when running first build anyways)
 
