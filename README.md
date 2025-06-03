@@ -195,7 +195,7 @@ project
    hx++ add sdl3
    ```
 
-   5. **Search for package through vcpkg**:
+5. **Search for package through vcpkg**:
    ```sh
    hx++ search <package>
    ```
