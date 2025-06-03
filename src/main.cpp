@@ -78,7 +78,7 @@ void get_default_configs() {
 int main(int argc, char *argv[]) {
     using namespace std;
 
-    cout << "proj. Hex++  version: 1.1.0" << endl;
+    cout << "proj. Hex++  version: 1.1.1" << endl;
     cout << "---------------------------\n" << endl;
 
     get_default_configs();

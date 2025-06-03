@@ -11,6 +11,15 @@
       }
     },
     {
+      "name": "gcc",
+      "inherits": "vcpkg",
+      "environment": {
+        "VCPKG_ROOT": "$env{HOME}/vcpkg",
+        "CC": "gcc",
+        "CXX": "g++"
+      }
+    },
+    {
       "name": "clang",
       "inherits": "vcpkg",
       "environment": {
