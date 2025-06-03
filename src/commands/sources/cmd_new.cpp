@@ -532,6 +532,7 @@ Error_code cmd_new::write_gitignore() {
         gitignore_file << "*.ilk" << endl;
         gitignore_file << "*.pdb" << endl;
         gitignore_file << ".cache/" << endl;
+        gitignore_file << "vcpkg_installed/" << endl;
 
         gitignore_file.close();
         return success;
