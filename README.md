@@ -27,6 +27,7 @@ The project is in working state and has the core functionalities I wanted it to 
 
 TODO:
    - [x] Argument passing for the target runnable
+   - [ ] Intuitive way to include libraries in the configuration file
    - [ ] "self-heal" command
    - [ ] Regex matching for configurations to everywhere, currently configs are strict on spacing
 
