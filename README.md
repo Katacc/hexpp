@@ -49,6 +49,8 @@ on Linux and macOS or through MSYS2 for Windows.
 - `vcpkg` (installation guide below)
 - `ninja`
 
+##### NixOS
+
 For NixOS users, there is a flake included to be able to build hx++ and do
 simple C++ development
 
