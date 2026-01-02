@@ -2,42 +2,45 @@
     <h1>proj. Hex++</h1>
     C++ project manager. Wrapper to combine CMake, vcpkg, and project generation.
 
-   > Made to ease your C++ project management with a bit of hex magix ~
+> Made to ease your C++ project management with a bit of hex magix ~
 
 ![clangd build](https://github.com/Katacc/hexpp/actions/workflows/cmake-multi-platform.yml/badge.svg)
 
-
 </div>
-
-
 
 ---
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y51D6K2E)
 
-
-https://github.com/Katacc/hexpp (main)  \
+https://github.com/Katacc/hexpp (main)\
 https://gitlab.com/Katacc/hexpp
 
 ## Release and plans
 
 Hello! Im proud to release my take on C++ project management for the public!
 
-The project is in working state and has the core functionalities I wanted it to have. There shouldn't be any big changes that would break projects, but I can't say for sure yet. Ill let you know if any updates comes that might break functionality, and how to migrate
+The project is in working state and has the core functionalities I wanted it to
+have. There shouldn't be any big changes that would break projects, but I can't
+say for sure yet. Ill let you know if any updates comes that might break
+functionality, and how to migrate
 
 TODO:
-   - [x] Argument passing for the target runnable
-   - [ ] Intuitive way to include libraries in the configuration file
-   - [ ] "self-heal" command
-   - [ ] Regex matching for configurations to everywhere, currently configs are strict on spacing
+
+- [x] Argument passing for the target runnable
+- [ ] Intuitive way to include libraries in the configuration file
+- [ ] "self-heal" command
+- [ ] Regex matching for configurations to everywhere, currently configs are
+      strict on spacing
 
 ## Getting Started
 
 ### Prerequisites
 
-This project uses CMake, GCC, and G++ compilers, which can be installed natively on Linux and macOS or through MSYS2 for Windows.
+This project uses CMake, GCC, and G++ compilers, which can be installed natively
+on Linux and macOS or through MSYS2 for Windows.
 
 #### Required Tools:
+
 - `g++` or `clang` (c++23 support)
 - `gcc` or `clang`
 - `gdb`
@@ -46,16 +49,24 @@ This project uses CMake, GCC, and G++ compilers, which can be installed natively
 - `vcpkg` (installation guide below)
 - `ninja`
 
+For NixOS users, there is a flake included to be able to build hx++ and do
+simple C++ development
+
 #### Windows-Specific Requirements:
-If you are on Windows and want to use the default vcpkg compiler settings, you need to have **MSVC (Microsoft Visual C++ Compiler)** installed.
+
+If you are on Windows and want to use the default vcpkg compiler settings, you
+need to have **MSVC (Microsoft Visual C++ Compiler)** installed.
 
 ---
 
 ### Installing vcpkg
 
-vcpkg is a C/C++ package manager made by Microsoft: [https://vcpkg.io](https://vcpkg.io). You can follow the guide on their website or use the steps below.
+vcpkg is a C/C++ package manager made by Microsoft:
+[https://vcpkg.io](https://vcpkg.io). You can follow the guide on their website
+or use the steps below.
 
 #### Steps to Install vcpkg:
+
 1. Clone the repository:
    ```sh
    git clone https://github.com/microsoft/vcpkg.git
@@ -72,13 +83,15 @@ vcpkg is a C/C++ package manager made by Microsoft: [https://vcpkg.io](https://v
      .\bootstrap-vcpkg.bat
      ```
 
-3. Configure the `VCPKG_ROOT` environment variable:
-   Add your vcpkg root directory to your PATH. For example:
+3. Configure the `VCPKG_ROOT` environment variable: Add your vcpkg root
+   directory to your PATH. For example:
    ```sh
    export VCPKG_ROOT=/path/to/vcpkg
    export PATH=$VCPKG_ROOT:$PATH
    ```
-   > **Note**: You need to do this every time you launch a new terminal. Consider adding it permanently to your PATH and creating a new environment variable `VCPKG_ROOT`.
+   > **Note**: You need to do this every time you launch a new terminal.
+   > Consider adding it permanently to your PATH and creating a new environment
+   > variable `VCPKG_ROOT`.
 
 ---
 
@@ -104,9 +117,9 @@ vcpkg is a C/C++ package manager made by Microsoft: [https://vcpkg.io](https://v
    cmake --build build --config Release
    ```
 
-
-4. Locate the executable:
-   The executable will be located in the [`build/Release`](build/Release/ ) folder. You can copy it to your PATH to use it anywhere.
+4. Locate the executable: The executable will be located in the
+   [`build/Release`](build/Release/) folder. You can copy it to your PATH to use
+   it anywhere.
 
    - **Linux Example**:
    ```sh
@@ -114,13 +127,14 @@ vcpkg is a C/C++ package manager made by Microsoft: [https://vcpkg.io](https://v
    sudo cp ./build/Release/hx++ /usr/bin/
    ```
 
-   - **Windows Example**:
-   Copy the `build/Release/hx++.exe` to a folder (e.g., `bin`) and add that folder to your PATH.
-
+   - **Windows Example**: Copy the `build/Release/hx++.exe` to a folder (e.g.,
+     `bin`) and add that folder to your PATH.
 
 #### Find writing hx++ annoying?
 
-After cloning hexpp repository, go into `project.cfg`, and change the project name to hxpp, this makes the executable into hxpp(.exe)
+After cloning hexpp repository, go into `project.cfg`, and change the project
+name to hxpp, this makes the executable into hxpp(.exe)
+
 ```
 [project]
 name = hxpp
@@ -130,16 +144,20 @@ version = 1.0.0
 CXX_version = 23
 ```
 
-if you have built the project allready with the original name, don't worry, just delete `/build` folder and build again after changing the value in project.cfg
+if you have built the project allready with the original name, don't worry, just
+delete `/build` folder and build again after changing the value in project.cfg
 
 ---
 
 ### Using Hex++
 
-Hex++ is a C++ project manager that creates and initializes a C++ project for you, it can build, run and add packages.
+Hex++ is a C++ project manager that creates and initializes a C++ project for
+you, it can build, run and add packages.
 
 #### Project Structure:
+
 When you create a new project, it will have the following structure:
+
 ```sh
 project
 │
@@ -163,6 +181,7 @@ project
 ```
 
 #### Commands:
+
 1. **Create a New Project**:
    ```sh
    hx++ new <project_name>
@@ -201,16 +220,17 @@ project
    hx++ search <package>
    ```
 
-   **Install packages** :
-   (Not necessary, it installs them when running first build anyways)
+   **Install packages** : (Not necessary, it installs them when running first
+   build anyways)
 
    ```sh
    hx++ install
    ```
 
-   After adding a package, vcpkg will show you what to add to your `CMakeLists.txt`. You need to manually include it in. For example:
+   After adding a package, vcpkg will show you what to add to your
+   `CMakeLists.txt`. You need to manually include it in. For example:
 
-    -- From shell after running `hx++ add sdl3`
+   -- From shell after running `hx++ add sdl3`
    ```sh
    sdl3 provides CMake targets:
 
@@ -218,7 +238,7 @@ project
    target_link_libraries(main PRIVATE SDL3::SDL3)
    ```
 
-    -- Add to your CMakeLists.txt
+   -- Add to your CMakeLists.txt
    ```cmake
    find_package(SDL3 CONFIG REQUIRED)
    target_link_libraries([PROGRAM_NAME] PRIVATE
@@ -231,26 +251,33 @@ project
 
 ### Configuring
 
-If configurations are not set, file not found or other reasons, the program defaults to its set default values, to use `gcc` and `g++` and default profile for building.
+If configurations are not set, file not found or other reasons, the program
+defaults to its set default values, to use `gcc` and `g++` and default profile
+for building.
 
-Hex++ can be configured with a configuration file. To do so, create new folder `hex++` in your `~/.config` and add a file
-`config.ini` there
+Hex++ can be configured with a configuration file. To do so, create new folder
+`hex++` in your `~/.config` and add a file `config.ini` there
+
 > ~ = User home folder
 
 `~/.config/hex++/config.ini`
 
+Following configurations are available, the first three configs impacts the
+`custom` build preset and the last configuration value sets your default preset
+the build command uses. The configurations does not affect default, vcpkg or
+clang profiles!
 
-Following configurations are available, the first three configs impacts the `custom` build preset and the last configuration value sets your default preset the build command uses. The configurations does not affect default, vcpkg or clang profiles!
+eg: `default_preset = clang` This uses clang preset by default on build, if you
+don't specify parameters
 
-eg: `default_preset = clang` This uses clang preset by default on build, if you don't specify parameters
 ```
 CXX_COMPILER_PATH = clang++
 C_COMPILER_PATH = clang
 C_DEBUGGER_PATH = gdb
 
 default_preset = default
-
 ```
+
 Note, pay attention to the syntax (correct spacing)\
 Note2, add an empty line after configurations just in case!
 
@@ -258,7 +285,7 @@ Note2, add an empty line after configurations just in case!
 
 ### Changing C++ version
 
-Change the variable in `project.cfg` \
+Change the variable in `project.cfg`\
 `CXX_version` default will be 23
 
 changing CMake version will be done the CMake way in `CMakeLists.txt`
@@ -268,15 +295,21 @@ changing CMake version will be done the CMake way in `CMakeLists.txt`
 ### Adding Files to the Project
 
 #### Header-Only Files:
-To add header-only files (`.h`), place them in the `libraries` folder and include them in your source files:
+
+To add header-only files (`.h`), place them in the `libraries` folder and
+include them in your source files:
+
 ```cpp
 #include "test.h"
 ```
 
 #### Header + Implementation Files:
-CMake is configured to find all .cpp files and automatically added to the project, if using recent enough CMake version. (4.0 recommended)
+
+CMake is configured to find all .cpp files and automatically added to the
+project, if using recent enough CMake version. (4.0 recommended)
 
 include header files in your source files normally. Use absolute paths from src
+
 ```cpp
 // In main.cpp
 #include "commands/headers/test.h"
@@ -284,9 +317,13 @@ include header files in your source files normally. Use absolute paths from src
 
 #### Modules
 
-Adding modules is simple, CMake automatically grabs all module files (.cppm and .ixx) ((.cppm is advised, not all editors recognize .ixx)) and includes them for you, you only need to do the standard C++23 module exports and imports in your program.
+Adding modules is simple, CMake automatically grabs all module files (.cppm and
+.ixx) ((.cppm is advised, not all editors recognize .ixx)) and includes them for
+you, you only need to do the standard C++23 module exports and imports in your
+program.
 
-If you use modules, I suggest using Clang, GCC has some problems with modules still.
+If you use modules, I suggest using Clang, GCC has some problems with modules
+still.
 
 ##### Quick example of modules in C++23
 
@@ -324,13 +361,13 @@ int main() {
 
 ---
 
-
-
 ### Changing the Project Name and version
 
 To change the project name:
+
 1. Update the `project.cfg` file with the new name.
 2. Update the `project.cfg` file with the new version
+
 ```
 [project]
 name = project_name
@@ -342,26 +379,31 @@ version = 1.0
 ### Encountering Errors
 
 #### Common Issues:
+
 1. **Build Errors**:
-   - Delete the [`build`](build ) folder and try again:
+   - Delete the [`build`](build) folder and try again:
      ```sh
      rm -rf build/
      hx++ build
      ```
 
 2. **Switching Between presets**:
-   - You **must** delete the [`build`](build ) folder before switching:
+   - You **must** delete the [`build`](build) folder before switching:
      ```sh
      rm -rf build/
      ```
 
 3. **Missing Dependencies**:
-   - Ensure all required tools (e.g., `gcc`, `g++`, `ninja`) are installed and available in your PATH.
+   - Ensure all required tools (e.g., `gcc`, `g++`, `ninja`) are installed and
+     available in your PATH.
 
 #### Reporting Issues:
-If you encounter unexpected errors, please submit an issue describing the problem.
 
-Preferably use GitHub for any issues / pull requests https://github.com/Katacc/hexpp
+If you encounter unexpected errors, please submit an issue describing the
+problem.
+
+Preferably use GitHub for any issues / pull requests
+https://github.com/Katacc/hexpp
 
 ---
 
@@ -392,8 +434,8 @@ Preferably use GitHub for any issues / pull requests https://github.com/Katacc/h
 
 ### project.cfg syntax
 
-project.cfg syntax is strict, since many things read from it, make sure the that there is 1 space in between values and = marks.
-(No regex matching for now)
+project.cfg syntax is strict, since many things read from it, make sure the that
+there is 1 space in between values and = marks. (No regex matching for now)
 
 ```
 [project]
@@ -407,16 +449,17 @@ CXX_version = 23
 ---
 
 ### Specific package problems
-if you find a package thats problematic (and even maybe a fix) open issue in GitLab
+
+if you find a package thats problematic (and even maybe a fix) open issue in
+GitLab
 
 - fmt
-   - problem: refuses to compile
-   - fix: Use fmt-header-only
+  - problem: refuses to compile
+  - fix: Use fmt-header-only
 
 - sdl3-image
-   - problem: No png support
-   - fix: install it using png flag `sdl3-image[png]`
-
+  - problem: No png support
+  - fix: install it using png flag `sdl3-image[png]`
 
 ---
 
