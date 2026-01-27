@@ -6,8 +6,8 @@
       "inherits": "vcpkg",
       "environment": {
         "VCPKG_ROOT": "$env{HOME}/vcpkg",
-        "CC": "gcc",
-        "CXX": "g++"
+        "CC": "$env{C_COMPILER_PATH}",
+        "CXX": "$env{CXX_COMPILER_PATH}"
       }
     },
     {
