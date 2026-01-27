@@ -112,6 +112,12 @@ or use the steps below.
    cmake --build build --config Release
    ```
 
+If it fails, try to force gcc profile
+```bash
+cmake --preset=gcc
+cmmake --build build --config Release
+```
+
 3. clang users:
    - **clang Preset**:
    ```sh
