@@ -263,6 +263,8 @@ If configurations are not set, file not found or other reasons, the program
 defaults to its set default values, to use `gcc` and `g++` and default profile
 for building.
 
+Default profile uses CXX_COMPILER_PATH and C_COMPILER_PATH
+
 Hex++ can be configured with a configuration file. To do so, create new folder
 `hex++` in your `~/.config` and add a file `config.ini` there
 
