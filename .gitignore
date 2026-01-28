@@ -8,3 +8,4 @@ compile_commands.json
 *.ilk
 *.pdb
 .cache/
+__cmake_systeminformation/

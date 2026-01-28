@@ -5,21 +5,21 @@ file(STRINGS ${CMAKE_SOURCE_DIR}/project.cfg config_lines)
 
 
 foreach(line IN LISTS config_lines)
-     if(line MATCHES "^name =")
-         string(LENGTH "name = " prefix_len)
-         string(SUBSTRING "${line}" ${prefix_len} -1 PROJ_NAME)
+    if(line MATCHES "^name =")
+        string(LENGTH "name = " prefix_len)
+        string(SUBSTRING "${line}" ${prefix_len} -1 PROJ_NAME)
 
-     endif()
-     if(line MATCHES "^version =")
-         string(LENGTH "version = " prefix_len_ver)
-         string(SUBSTRING "${line}" ${prefix_len_ver} -1 PROJ_VERSION)
+    endif()
+    if(line MATCHES "^version =")
+        string(LENGTH "version = " prefix_len_ver)
+        string(SUBSTRING "${line}" ${prefix_len_ver} -1 PROJ_VERSION)
 
-     endif()
-     if(line MATCHES "^CXX_version =")
-         string(LENGTH "CXX_version = " prefix_len_cxx)
-         string(SUBSTRING "${line}" ${prefix_len_cxx} -1 cxx_version)
+    endif()
+    if(line MATCHES "^CXX_version =")
+        string(LENGTH "CXX_version = " prefix_len_cxx)
+        string(SUBSTRING "${line}" ${prefix_len_cxx} -1 cxx_version)
 
-     endif()
+    endif()
 endforeach()
 
 
@@ -72,4 +72,3 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 # SDL
 # target_link_libraries(yoru PUBLIC SDL3::SDL3)
-
